@@ -6,6 +6,7 @@ import {
   Pressable,
   Dimensions,
   Modal,
+  Alert,
 } from "react-native";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
@@ -168,6 +169,24 @@ export default function GameScreen() {
           setHighScore(s);
           storage.setItem(HIGH_SCORE_KEY, s);
           Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+		  
+		  console.log("Sending score to:", process.env.EXPO_PUBLIC_API_URL);
+		  fetch(`${process.env.EXPO_PUBLIC_API_URL}/api/score`, {
+		    method: 'POST',
+		    headers: {
+			  'Content-Type': 'application/json',
+		    },
+		    body: JSON.stringify({ score: s }), 
+		  })
+            .then(response => {
+               if (!response.ok) throw new Error("Server rejected the score");
+               console.log("Successfully sent to cloud!");
+            })
+            .catch(error => {
+               console.log(error);
+               Alert.alert("Cloud Save Failed", String(error));
+            });
+			
         } else {
           setIsNewHigh(false);
           setHighScore(prev);
