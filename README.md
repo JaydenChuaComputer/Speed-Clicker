@@ -22,44 +22,42 @@ No setup required! You can play the live versions of the game right now:
 
 Want to run the code on your own machine? Follow these steps to set up the local development environment.
 
-
-
+.
 ### 1. Backend Setup
 1. Open a new terminal and navigate to the backend folder:
-   ```bash
+   ```
    cd app/backend
    ```
 2. Create and activate a virtual environment:
-   ```bash
+   ```
    python -m venv venv
 	.\venv\Scripts\activate
    ```
 3. Install dependencies:
-   ```bash
+   ```
    python -m pip install -r requirements.txt
    ```  
 4. Start the server and leave the server active:
-   ```bash
+   ```
    python server.py
    ```
    or
-   ```bash
+   ```
    python -m uvicorn server:app --reload
    ```
    
-   
-   
+.  
 ### 2. Frontend Setup
 1. Open a new terminal and navigate to the frontend folder:
-   ```bash
+   ```
    cd app/frontend
    ```
 2. Install the Node modules:
-   ```bash
+   ```
    npm install
    ```
 3. Configure your local network IP in the "\app\frontend\.env" file:
-   ```bash
+   ```
    EXPO_PUBLIC_API_URL=http://<YOUR_LOCAL_IP>:8000
    ```
 4. Start the Expo development server:
@@ -67,8 +65,7 @@ Want to run the code on your own machine? Follow these steps to set up the local
    npx expo start -c
    ```   
 
-
-
+.
 ### 3. 📱 How to Test
 1. Download the Expo Go app on your iOS or Android device.
 2. Ensure your phone and computer are on the same Wi-Fi network.
