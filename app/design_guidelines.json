@@ -1,0 +1,198 @@
+{
+  "app_name": "Speed Clicker",
+  "personality": "7 Dark-First Utility",
+  "personality_one_liner": "A high-octane, neon-drenched arcade clicker that demands pure reaction speed.",
+  "theme": {
+    "light": {
+      "surface": "#FAFAFA",
+      "onSurface": "#09090B",
+      "surfaceSecondary": "#F4F4F5",
+      "onSurfaceSecondary": "#27272A",
+      "surfaceTertiary": "#E4E4E7",
+      "onSurfaceTertiary": "#3F3F46",
+      "surfaceInverse": "#09090B",
+      "onSurfaceInverse": "#FFFFFF",
+      "brand": "#E11D48",
+      "brandPrimary": "#F43F5E",
+      "onBrandPrimary": "#FFFFFF",
+      "brandSecondary": "#A3E635",
+      "onBrandSecondary": "#000000",
+      "brandTertiary": "#F97316",
+      "onBrandTertiary": "#000000",
+      "success": "#84CC16",
+      "onSuccess": "#FFFFFF",
+      "warning": "#F59E0B",
+      "onWarning": "#FFFFFF",
+      "error": "#EF4444",
+      "onError": "#FFFFFF",
+      "info": "#14B8A6",
+      "onInfo": "#FFFFFF",
+      "border": "#E4E4E7",
+      "borderStrong": "#A1A1AA",
+      "divider": "#E4E4E7"
+    },
+    "dark": {
+      "surface": "#09090B",
+      "onSurface": "#FFFFFF",
+      "surfaceSecondary": "#18181B",
+      "onSurfaceSecondary": "#E4E4E7",
+      "surfaceTertiary": "#27272A",
+      "onSurfaceTertiary": "#A1A1AA",
+      "surfaceInverse": "#FFFFFF",
+      "onSurfaceInverse": "#09090B",
+      "brand": "#E11D48",
+      "brandPrimary": "#F43F5E",
+      "onBrandPrimary": "#FFFFFF",
+      "brandSecondary": "#A3E635",
+      "onBrandSecondary": "#000000",
+      "brandTertiary": "#F97316",
+      "onBrandTertiary": "#000000",
+      "success": "#A3E635",
+      "onSuccess": "#000000",
+      "warning": "#FBBF24",
+      "onWarning": "#000000",
+      "error": "#F87171",
+      "onError": "#000000",
+      "info": "#2DD4BF",
+      "onInfo": "#000000",
+      "border": "#27272A",
+      "borderStrong": "#52525B",
+      "divider": "#27272A"
+    }
+  },
+  "typography": {
+    "displayFontFamily": "Anton_400Regular",
+    "textFontFamily": "Inter_500Medium",
+    "scale": {
+      "sm": 14,
+      "base": 16,
+      "lg": 18,
+      "xl": 22,
+      "2xl": 28
+    }
+  },
+  "spacing": {
+    "rule": "Handle spacing correctly dont have extra spaces where its not required, handle padding and margin corectly and subtle for buttons and components",
+    "xs": 4,
+    "sm": 8,
+    "md": 12,
+    "lg": 16,
+    "xl": 24,
+    "2xl": 32,
+    "3xl": 48
+  },
+  "radius_tokens": {
+    "sm": 6,
+    "md": 12,
+    "lg": 20,
+    "pill": 999
+  },
+  "shadow_tier": 0,
+  "navigation": "stack_only",
+  "icon_set": "Phosphor",
+  "glassmorphism": {
+    "enabled": true,
+    "do's": [
+      "Use glass for the Game Over bottom sheet modal",
+      "Use glass for the Home screen sticky header/duration selector backdrop",
+      "Use glass for combo pop-ups if they overlay dense elements"
+    ],
+    "dont's": [
+      "Do not use glass for the moving target shapes (they must be solid neon for visibility)",
+      "Do not use glass on simple buttons"
+    ]
+  },
+  "haptics": {
+    "enabled": true,
+    "NO_TOLERANCE": "always have switcher in settings or profile page",
+    "library": "expo-haptics",
+    "events": {
+      "tab_switch": "selection",
+      "toggle_switch_flip": "selection",
+      "segmented_control_change": "selection",
+      "filter_chip_select": "selection",
+      "slider_drag_end": "selection",
+      "primary_cta_tap": "impact_heavy",
+      "target_hit": "impact_medium",
+      "combo_milestone": "notification_success",
+      "timer_tick_low": "impact_light",
+      "game_over": "impact_heavy",
+      "submission_success": "notification_success",
+      "submission_error": "notification_error",
+      "pull_to_refresh_trigger": "impact_light",
+      "long_press_confirm": "impact_heavy"
+    },
+    "wiring": "Haptic calls live inside these components (Button primary, TabBar item, SegmentedControl, FilterChip, switch, slider) they fire automatically on use. Dev agent does NOT wire haptics ad-hoc per screen."
+  },
+  "platform_libraries": {
+    "tabs": {
+      "ios": "NativeTabs (from expo-router/unstable-native-tabs)",
+      "android": "Tabs (from expo-router)"
+    },
+    "glass": {
+      "ios": "expo-glass-effect",
+      "android": "expo-blur",
+      "low_end_android_fallback": "solid surfaceSecondary"
+    },
+    "image": "expo-image",
+    "gradient": "expo-linear-gradient",
+    "blur": "expo-blur",
+    "haptics": "expo-haptics",
+    "safe_area": "react-native-safe-area-context",
+    "bottom_sheet": "@gorhom/bottom-sheet",
+    "animation": "react-native-reanimated",
+    "gesture": "react-native-gesture-handler",
+    "icons": "@expo/vector-icons"
+  },
+  "screens": [
+    {
+      "name": "Home",
+      "purpose": "Landing screen to choose duration via a fixed chip row and start the game. Displays highest score.",
+      "states": {
+        "loading": "Full screen neon skeleton grid.",
+        "empty": "No high score yet? Show a vibrant 'Play your first game' graphic.",
+        "error": "Error loading score, show retry."
+      }
+    },
+    {
+      "name": "Game",
+      "purpose": "The main reaction arena. Score at the top, countdown timer, and a randomly teleporting shape that changes geometry (Circle, Square, Triangle, Star, Hexagon) on each click.",
+      "states": {
+        "loading": "3..2..1.. countdown skeleton before game start.",
+        "empty": "Not applicable in active gameplay.",
+        "error": "Not applicable."
+      }
+    },
+    {
+      "name": "GameOver Modal",
+      "purpose": "A glassmorphic BottomSheet or Modal overlaying the game. Shows final score, max combo, and celebrates new high scores.",
+      "states": {
+        "loading": "Calculating final stats skeleton...",
+        "empty": "N/A",
+        "error": "N/A"
+      }
+    }
+  ],
+  "images": {
+    "arcade_grid_background": {
+      "light": "https://images.pexels.com/photos/33968585/pexels-photo-33968585.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "dark": "https://images.unsplash.com/photo-1708778002477-75611274f23d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDN8MHwxfHNlYXJjaHwyfHxkYXJrJTIwcmV0cm8lMjBncmlkJTIwYmFja2dyb3VuZHxlbnwwfHx8fDE3NzkxOTExNjF8MA&ixlib=rb-4.1.0&q=85",
+      "alt": "A retro wireframe grid pattern"
+    }
+  },
+  "instructions_to_main_agent": [
+    "Strictly adhere to the 'Dark-First Utility' (Personality 7) rules.",
+    "NO BLUE OR PURPLE ALLOWED. Use the provided Coral Red, Volt Green, and Neon Orange tokens exclusively for color.",
+    "Implement the 'chip_row' pattern strictly for the Game Duration selector (10s, 20s, 30s) on the Home screen. It must sit under the Sticky Header as chrome, using fixed height of 36pt.",
+    "For the Game Screen target, use Phosphor icons (Circle, Square, Triangle, Star, Hexagon) or pure SVGs, rendering them with a large size (e.g., 64-96pt) and applying `shadowColor: theme.brandPrimary`, `shadowRadius: 15` (or `expo-blur`) for a neon glow effect. Rotate the shape randomly on each tap.",
+    "Ensure `useWindowDimensions()` is used to calculate random X/Y positioning for the target so it never clips off-screen. Apply `SafeArea` insets to the bounds calculations so the target doesn't hide behind the notch/island.",
+    "Implement haptics on target hits (`impact_medium`) and for streak combos (`notification_success`).",
+    "Persist high score via AsyncStorage. Trigger the 'New High Score!' celebration in the Game Over modal using animations.",
+    "Apply `testID` to all actionable components (e.g., `testID='start-game-button'`, `testID='target-shape'`)."
+  ],
+  "chip_row": {
+    "enabled": true,
+    "purpose": "Duration selection (10s, 20s, 30s)",
+    "rules": "Fixed 36pt height, 56pt row height, horizontal scroll only, sits outside scrollable list as a sibling in the sticky header stack."
+  }
+}
