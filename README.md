@@ -4,7 +4,7 @@
 An arcade-style reaction game where players tap glowing shapes to build combos and beat their high scores. Built as a full-stack application with a cross-platform frontend and a Python backend.
 
 <br>
-
+ 
 ## 🌟 Play Now
 No setup required! You can play the live versions of the game right now:
 * 🌐 **Play on Web:** [speed-clicker-web.onrender.com](https://speed-clicker-web.onrender.com)
